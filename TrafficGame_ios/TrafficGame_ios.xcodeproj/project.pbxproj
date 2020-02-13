@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23DB7F921C8AF2D3C6595A0B /* Pods_TrafficGame_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7A17646B752D0D5D53FADC /* Pods_TrafficGame_ios.framework */; };
 		BF1BBBDF23F4F47500E9B0B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBBDE23F4F47500E9B0B6 /* AppDelegate.swift */; };
 		BF1BBBE123F4F47500E9B0B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBBE023F4F47500E9B0B6 /* SceneDelegate.swift */; };
 		BF1BBBE323F4F47500E9B0B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1BBBE223F4F47500E9B0B6 /* ViewController.swift */; };
 		BF1BBBE623F4F47500E9B0B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1BBBE423F4F47500E9B0B6 /* Main.storyboard */; };
 		BF1BBBE823F4F47600E9B0B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1BBBE723F4F47600E9B0B6 /* Assets.xcassets */; };
 		BF1BBBEB23F4F47600E9B0B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1BBBE923F4F47600E9B0B6 /* LaunchScreen.storyboard */; };
+		BF5A209623F5188800EFAECA /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209523F5188800EFAECA /* MyVC.swift */; };
+		BF5A209823F51B8700EFAECA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209723F51B8700EFAECA /* LoginVC.swift */; };
+		BF5A209A23F51C8A00EFAECA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209923F51C8A00EFAECA /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F7A17646B752D0D5D53FADC /* Pods_TrafficGame_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrafficGame_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12E31BD30BC1D23AC097494 /* Pods-TrafficGame_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafficGame_ios.debug.xcconfig"; path = "Target Support Files/Pods-TrafficGame_ios/Pods-TrafficGame_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		BF1BBBDB23F4F47500E9B0B6 /* TrafficGame_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficGame_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1BBBDE23F4F47500E9B0B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1BBBE023F4F47500E9B0B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,10 @@
 		BF1BBBE723F4F47600E9B0B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1BBBEA23F4F47600E9B0B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF1BBBEC23F4F47600E9B0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF5A209523F5188800EFAECA /* MyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVC.swift; sourceTree = "<group>"; };
+		BF5A209723F51B8700EFAECA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		BF5A209923F51C8A00EFAECA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE01AD44C9F2EE2BF30C89B8 /* Pods-TrafficGame_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafficGame_ios.release.xcconfig"; path = "Target Support Files/Pods-TrafficGame_ios/Pods-TrafficGame_ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23DB7F921C8AF2D3C6595A0B /* Pods_TrafficGame_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FF29BC30EFB7AB1F31D9B59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F7A17646B752D0D5D53FADC /* Pods_TrafficGame_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E28BB5853500CCA70EA7650 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A12E31BD30BC1D23AC097494 /* Pods-TrafficGame_ios.debug.xcconfig */,
+				CE01AD44C9F2EE2BF30C89B8 /* Pods-TrafficGame_ios.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF1BBBD223F4F47500E9B0B6 = {
 			isa = PBXGroup;
 			children = (
 				BF1BBBDD23F4F47500E9B0B6 /* TrafficGame_ios */,
 				BF1BBBDC23F4F47500E9B0B6 /* Products */,
+				7E28BB5853500CCA70EA7650 /* Pods */,
+				6FF29BC30EFB7AB1F31D9B59 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +108,7 @@
 		BF1BBBF323F4F50100E9B0B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF5A209923F51C8A00EFAECA /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +119,8 @@
 				BF1BBBDE23F4F47500E9B0B6 /* AppDelegate.swift */,
 				BF1BBBE023F4F47500E9B0B6 /* SceneDelegate.swift */,
 				BF1BBBE223F4F47500E9B0B6 /* ViewController.swift */,
+				BF5A209523F5188800EFAECA /* MyVC.swift */,
+				BF5A209723F51B8700EFAECA /* LoginVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -98,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF1BBBEF23F4F47600E9B0B6 /* Build configuration list for PBXNativeTarget "TrafficGame_ios" */;
 			buildPhases = (
+				A71BFC50FA810302F9EC947E /* [CP] Check Pods Manifest.lock */,
 				BF1BBBD723F4F47500E9B0B6 /* Sources */,
 				BF1BBBD823F4F47500E9B0B6 /* Frameworks */,
 				BF1BBBD923F4F47500E9B0B6 /* Resources */,
+				9E4DE73CE3C99EFCDD766647 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,14 +193,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9E4DE73CE3C99EFCDD766647 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrafficGame_ios/Pods-TrafficGame_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrafficGame_ios/Pods-TrafficGame_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrafficGame_ios/Pods-TrafficGame_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A71BFC50FA810302F9EC947E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrafficGame_ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF1BBBD723F4F47500E9B0B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5A209623F5188800EFAECA /* MyVC.swift in Sources */,
 				BF1BBBE323F4F47500E9B0B6 /* ViewController.swift in Sources */,
+				BF5A209A23F51C8A00EFAECA /* User.swift in Sources */,
 				BF1BBBDF23F4F47500E9B0B6 /* AppDelegate.swift in Sources */,
 				BF1BBBE123F4F47500E9B0B6 /* SceneDelegate.swift in Sources */,
+				BF5A209823F51B8700EFAECA /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +387,7 @@
 		};
 		BF1BBBF023F4F47600E9B0B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A12E31BD30BC1D23AC097494 /* Pods-TrafficGame_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -324,6 +406,7 @@
 		};
 		BF1BBBF123F4F47600E9B0B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE01AD44C9F2EE2BF30C89B8 /* Pods-TrafficGame_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
