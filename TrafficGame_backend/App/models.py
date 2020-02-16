@@ -4,13 +4,18 @@ from App.ext import db
 
 
 class User(db.Model):
-    id = db.Column(db.String(50),primary_key=True)
+    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     username = db.Column(db.String(80))
     password = db.Column(db.String(80),default='password')
 
     def save(self):
-        db.session.add(self)
-        db.session.commit()
+        try:
+            db.session.add(self)
+            db.session.commit()
+            return True
+        except Exception as e:
+            print(e)
+            return False
 
 
 

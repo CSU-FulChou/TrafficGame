@@ -3,10 +3,12 @@
 
 
 from flask import Blueprint, request, abort
+
 from flask_marshmallow import Marshmallow
 
 from App.ext import db
 from App.models import User
+from testMatlab import my_sum
 
 ma = Marshmallow()
 api = Blueprint('api',__name__)
@@ -31,6 +33,17 @@ def creat_db():
     db.create_all()
     return "success"
 
+@api.route('/dropdb')
+def drop_db():
+    db.drop_all()
+    return "success"
+
+@api.route('/testMatlab')
+def testMatlab():
+    result = my_sum(4,5)
+    print(result)
+    return "success"
+
 
 @api.route('/adduser',methods=['POST','GET'])
 def adduser():
@@ -41,7 +54,7 @@ def adduser():
         user.username = username
         user.password = password
         if not user.save():
-            abort(404,message='user parameter is not right',meg='fail')
+            abort(404)
 
     data = {
         "status": 200,
@@ -49,20 +62,26 @@ def adduser():
     }
     return data
 
-@api.route('/login',methods=['POSt'])
+@api.route('/login',methods=['POST'])
 def login():
     msg = ''
     status = 404
     username = request.form.get('username')
     password = request.form.get('password')
     user = User.query.filter(User.username == username)
-    if user.password == password:
-        msg = 'sucess'
-        status = 200
 
-    else:
-        msg = 'fail'
-        status = 404
+    print(type(user))
+    print(user)
+    if user is None:
+        print('user no found')
+
+    # if user.password == password:
+    #     msg = 'sucess'
+    #     status = 200
+    #
+    # else:
+    #     msg = 'fail'
+    #     status = 404
 
     data = {
         "status": status,
