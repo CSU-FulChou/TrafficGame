@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7JH-fc-yex">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iJo-Cc-YdC">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -41,6 +41,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1071.2" y="128.18590704647679"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="GXC-nz-Dbi">
+            <objects>
+                <viewController storyboardIdentifier="RouteTutorial" id="iJo-Cc-YdC" customClass="MapViewController" customModule="TrafficGame_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s58-dv-BJr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nQz-4A-Mtg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nQz-4A-Mtg" firstAttribute="trailing" secondItem="TPM-1n-YLe" secondAttribute="trailing" id="Sk9-Th-GLD"/>
+                            <constraint firstItem="nQz-4A-Mtg" firstAttribute="top" secondItem="TPM-1n-YLe" secondAttribute="top" id="cHv-G4-DSm"/>
+                            <constraint firstItem="nQz-4A-Mtg" firstAttribute="leading" secondItem="TPM-1n-YLe" secondAttribute="leading" id="mQ3-lc-l0e"/>
+                            <constraint firstItem="nQz-4A-Mtg" firstAttribute="bottom" secondItem="TPM-1n-YLe" secondAttribute="bottom" id="qSR-TW-Ajz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TPM-1n-YLe"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="nQz-4A-Mtg" id="D08-Zv-eJZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYA-S6-gbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052" y="-556.37181409295351"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="0Se-hk-Ako">

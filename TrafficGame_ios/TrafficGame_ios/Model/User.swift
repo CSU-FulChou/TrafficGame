@@ -8,6 +8,6 @@
 
 import Foundation
 
-class User: <#super class#> {
-    <#code#>
-}
+//class User: <#super class#> {
+//    <#code#>
+//}

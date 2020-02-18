@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		BF5A209623F5188800EFAECA /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209523F5188800EFAECA /* MyVC.swift */; };
 		BF5A209823F51B8700EFAECA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209723F51B8700EFAECA /* LoginVC.swift */; };
 		BF5A209A23F51C8A00EFAECA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209923F51C8A00EFAECA /* User.swift */; };
+		BFBA2CA623FBC9A4009A146F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA2CA523FBC9A4009A146F /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		BF5A209523F5188800EFAECA /* MyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVC.swift; sourceTree = "<group>"; };
 		BF5A209723F51B8700EFAECA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		BF5A209923F51C8A00EFAECA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BFBA2CA523FBC9A4009A146F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CE01AD44C9F2EE2BF30C89B8 /* Pods-TrafficGame_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafficGame_ios.release.xcconfig"; path = "Target Support Files/Pods-TrafficGame_ios/Pods-TrafficGame_ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +64,6 @@
 				A12E31BD30BC1D23AC097494 /* Pods-TrafficGame_ios.debug.xcconfig */,
 				CE01AD44C9F2EE2BF30C89B8 /* Pods-TrafficGame_ios.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -121,6 +122,7 @@
 				BF1BBBE223F4F47500E9B0B6 /* ViewController.swift */,
 				BF5A209523F5188800EFAECA /* MyVC.swift */,
 				BF5A209723F51B8700EFAECA /* LoginVC.swift */,
+				BFBA2CA523FBC9A4009A146F /* MapViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -246,6 +248,7 @@
 				BF1BBBDF23F4F47500E9B0B6 /* AppDelegate.swift in Sources */,
 				BF1BBBE123F4F47500E9B0B6 /* SceneDelegate.swift in Sources */,
 				BF5A209823F51B8700EFAECA /* LoginVC.swift in Sources */,
+				BFBA2CA623FBC9A4009A146F /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
