@@ -1,3 +1,4 @@
-function a = my_sum(b,c)
+function [d,a] = my_sum(b,c)
     a = b + c;
+    d = b * c;
 end

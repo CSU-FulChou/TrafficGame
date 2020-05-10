@@ -4,11 +4,12 @@
 
 from flask import Blueprint, request, abort
 
-from flask_marshmallow import Marshmallow
+from flask_marshmallow import Marshmallow, Schema
+from marshmallow import fields
 
 from App.ext import db
 from App.models import User
-from testMatlab import my_sum
+from App.matlab.runMatlab import trafficMethod
 
 ma = Marshmallow()
 api = Blueprint('api',__name__)
@@ -38,11 +39,32 @@ def drop_db():
     db.drop_all()
     return "success"
 
-@api.route('/testMatlab')
+class TrafficSchema(Schema):
+    patht = fields.List(fields.List(fields.Float))
+    pathd = fields.List(fields.List(fields.Float))
+    long = fields.Float()
+    save_ratefor0 = fields.Float()
+    save_ratefor1 = fields.Float()
+
+trafficSchema = TrafficSchema()
+
+@api.route('/getResult')
 def testMatlab():
-    result = my_sum(4,5)
-    print(result)
-    return "success"
+    patht,pathd,long,save_ratefor0,save_ratefor1 = trafficMethod()
+
+    result = {"patht":patht,
+        "pathd": pathd,
+        "long": long,
+        "save_ratefor0": save_ratefor0,
+        "save_ratefor1": save_ratefor1}
+
+    data = {
+        "status":200,
+        "msg":"ok",
+        "data":trafficSchema.dump(result)
+    }
+    #print("-------",patht)
+    return data
 
 
 @api.route('/adduser',methods=['POST','GET'])
