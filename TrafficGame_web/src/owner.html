@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <!-- 个人面板 -->
+    <head>
+        <title>Example27</title>
+        <link href="reset.css" type="text/css" rel="stylesheet" />
+        <style type="text/css">
+            #myaccount{
+                height: 560px;
+                width: 25%;
+                float: right;
+                margin:10px 10px 10px 0;
+                background-color: rgb(245, 245, 245);
+            }
+            #information{
+                height: 270px;
+                width: 72%;
+                float:left;
+                margin:10px 0 0 10px;
+                background-color: rgb(245, 245, 245);
+            }
+            #helpcenter{
+                height: 270px;
+                width: 72%;
+                float: left;
+                margin:10px 0 0 10px;
+                background-color: rgb(245, 245, 245);
+            }
+            #myphoto{
+                height: 200px;
+                margin:30px 0 10px 0;
+            }
+            .h2{
+                border-bottom: 1px solid rgb(200, 200, 200);
+            }
+            .title{
+                display: inline-block;
+                margin-left: 10px;
+                padding: 10px 0;
+                border-bottom: 3px solid #2694df;
+                font-size: 18px;
+                line-height: 18px;
+                height: 19px;
+            }
+            .center{
+                text-align:center;
+            }
+            #infotable{
+                margin: 10px;
+                color: rgb(90, 90, 90);
+                width: 97%;
+            }
+            #loginfotable{
+                margin: 10px;
+                color: rgb(90, 90, 90);
+                width: 97%;
+                border: 1px solid rgb(219, 219, 219);
+            }
+            .tdtime{
+                text-align: right;
+                height: 30px;
+            }
+            #editmyinfo{
+                display: inline-block;
+                width: 90%;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                margin:90px 0 15px 0;
+                cursor: pointer;
+                background: #6382ff;
+                color: #fff;
+                font-size: 16px;
+            }
+            .td{
+                height: 30px;
+                padding: 0 0 0 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='information'>
+            <h2 class='h2'>
+                <p class='title'>
+                    您的待办事项
+                </p>
+            </h2>
+            <table id='infotable'>
+                <tr>
+                    <td>
+                        参加两会并提交关于严格禁止九九六工作制的议案
+                    </td>
+                    <td class='tdtime'>
+                        2020/5/21
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        听达佬吹吹今天的牛逼
+                    </td>
+                    <td class='tdtime'>
+                        2020/5/20
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        刷微博看看娱乐圈最近又有什么瓜可以吃
+                    </td>
+                    <td class='tdtime'>
+                        2020/5/16
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id='myaccount'>
+            <div class='center'>
+                <img src='../img/Setsuna.jpg' id='myphoto'>
+                <p style="font-size: 20px;font-weight: bold;">晚上好，刹那</p>
+                <h2 style="border-bottom: 1px solid grey;margin:10px 20px 10px 20px"></h2>
+                <table style="width: 100%;color: rgb(90, 90, 90);">
+                    <tr>
+                        <td style="height: 30px;">姓名</td>
+                        <td>清浦刹那</td>
+                    </tr>
+                    <tr>
+                        <td style="height: 30px;">账号</td>
+                        <td>1103170110</td>
+                    </tr>
+                    <tr>
+                        <td style="height: 30px;">绑定手机号</td>
+                        <td>13667331493</td>
+                    </tr>
+                    <tr>
+                        <td style="height: 30px;">所属部门</td>
+                        <td>财务部</td>
+                    </tr>
+                </table>
+                <span id='editmyinfo'>
+                    编辑信息
+                </span>
+            </div>
+        </div>
+        <div id='helpcenter'>
+            <h2 class="h2">
+                <p class='title'>
+                    登录记录
+                </p>
+            </h2>
+            <table id='loginfotable'>
+                <tr style="background-color: rgb(230, 230, 230);">
+                    <td style="height: 30px;padding: 0 0 0 10px;font-weight: bold;">
+                        登录方式
+                    </td>
+                    <td style="font-weight: bold;">
+                        登录终端
+                    </td>
+                    <td style="font-weight: bold;">
+                        登录时间
+                    </td>
+                </tr>
+                <tr style="background-color: rgb(250, 250, 250);">
+                    <td class='td'>
+                        一键登录
+                    </td>
+                    <td >
+                        移动端
+                    </td>
+                    <td >
+                        2020/5/21 21:40:01
+                    </td>
+                </tr>
+                <tr style="background-color: rgb(250, 250, 250);">
+                    <td class='td'>
+                        账号密码登录
+                    </td>
+                    <td >
+                        网页端
+                    </td>
+                    <td >
+                        2020/5/21 20:32:54
+                    </td>
+                </tr>
+                <tr style="background-color: rgb(250, 250, 250);">
+                    <td class='td'>
+                        一键登录
+                    </td>
+                    <td >
+                        移动端
+                    </td>
+                    <td >
+                        2020/5/21 21:40:01
+                    </td>
+                </tr>
+                <tr style="background-color: rgb(250, 250, 250);">
+                    <td class='td'>
+                        一键登录
+                    </td>
+                    <td >
+                        移动端
+                    </td>
+                    <td >
+                        2020/5/21 21:40:01
+                    </td>
+                </tr>
+                <tr style="background-color: rgb(250, 250, 250);">
+                    <td class='td'>
+                        一键登录
+                    </td>
+                    <td >
+                        移动端
+                    </td>
+                    <td >
+                        2020/5/21 21:40:01
+                    </td>
+                </tr style="background-color: rgb(250, 250, 250);">
+            </table>
+        </div>
+    </div>
+    </body>
+</html>

@@ -7,3 +7,16 @@
 //
 
 import Foundation
+class AirplanPath {
+    var No:Int
+    var longitude:Double
+    var latitude:Double
+    
+    init(No:Int,longitude:Double,latitude:Double) {
+        self.No = No
+        self.longitude = longitude
+        self.latitude = latitude
+    }
+
+    
+}

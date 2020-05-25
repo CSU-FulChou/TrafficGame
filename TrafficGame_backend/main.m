@@ -11,7 +11,7 @@ function [patht,pathd,long,save_ratefor0,save_ratefor1]=main(sj0,vd,vt,Gdmax,lon
 % Step2：替换算法，将部分卡车点替换为无人机点，得到初始车机协同路径
 [patht,pathd,M,k,N,long1]=ReplacementAlgorithm(path,d,dd,weight,longdmax,Gdmax,a,long0,sj1);
 % Step3：模拟退火算法，车机协同路径优化
-e=0.1^30;L=100000;at=0.999;T=1; 
+e=0.1^30;L=200000;at=0.999;T=1; 
 for i=1:L
     flag=floor(1+6*rand);
     switch flag
@@ -36,7 +36,6 @@ end
 % Step4：输出与绘图函数，包括：车机协同较优路径与经纬度，计算成本使用情况，绘制示意图
 [patht,xxt,yyt,pathd,xxd,yyd,xxG,yyG,long,save_ratefor0,save_ratefor1]=PrintAndPlot(path,patht,pathd,sj1,M,a,d,dd,long0,long1);
 patht=[patht' xxt yyt]; 
-pathd=[pathd' xxd xxd];
+pathd=[pathd' xxd yyd];
 heavybag=[path(a)' xxG yyG];
-end
 % 把路径与经纬度放到同一矩阵

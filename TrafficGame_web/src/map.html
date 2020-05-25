@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <style type="text/css">  
+            html{
+                height:100%
+            }    
+            body{
+                height:100%;
+                margin:0px;
+                padding:0px
+            }
+            #container{
+                height:100%
+            }
+            .input{
+                position: absolute;
+                top: 0px;
+                margin: 10px;
+                background-color: rgb(199, 199, 199);
+                opacity: 0.8;
+            }
+            #console{
+                position:absolute;
+                top:400px;
+                margin:10px;
+                background-color: rgb(199, 199, 199);
+                opacity: 0.8;
+            }
+        </style> 
+        
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mjEbve1AymRLf0NKnVizfRoCTrPg7S8Y"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div id="container" style="height:600px;"></div>
+        <script type="text/javascript">
+            var map = new BMap.Map("container"); 
+            var longitude=112.995689;
+            var latitude=28.14639;
+            var point = new BMap.Point(longitude, latitude);
+            map.centerAndZoom(point, 10);
+            map.enableScrollWheelZoom(true); 
+            function loadXMLDoc()
+            {
+                var pt=new Array()
+                var pd=new Array()
+                var i;
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                    {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                    }
+                else
+                    {// code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                xmlhttp.onreadystatechange=function()
+                {
+
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                            var result=JSON.parse(xmlhttp.responseText);
+                            console.log(result)
+                            console.log(result.data.patht.length)
+
+                            var patht = result.data.patht
+                            var pathd = result.data.pathd
+
+                            // console.log(result.Data.patht.length)
+                            for (i=0;i<patht.length;i++)
+                            {
+                                if (i==0)
+                                {
+                                    var startpt=new BMap.Point(patht[i][1],patht[i][2]);
+                                }
+                                else
+                                {
+                                    pt[i-1]=new BMap.Point(patht[i][1],patht[i][2]);
+                                }
+                            }
+
+
+                            var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+                            driving.search(startpt, startpt,{waypoints:pt});//waypoints表示途经点
+                            map.enableScrollWheelZoom(true);
+
+                            for (i=0;i<pathd.length;i++)
+                            {
+                                pd[i]=new BMap.Point(pathd[i][1],pathd[i][2]);
+                            }
+                            pd[pathd.length]=pd[0]
+                            var polyline = new BMap.Polyline(pd, {strokeColor:"red", strokeWeight:4, strokeOpacity:0.5});   //创建折线
+                            map.addOverlay(polyline);
+                        }
+                }
+                xmlhttp.open("GET","http://127.0.0.1:5000/getResult",true);
+                xmlhttp.send();
+            }
+            
+            
+            function submit(){
+                longitude=document.getElementById("longitudetext").value;
+                latitude=document.getElementById("latitudetext").value;
+                point=new BMap.Point(longitude, latitude); 
+                map.centerAndZoom(point, 10);
+            }
+        </script>
+        <div class="input">
+            <table>
+                <tr>
+                    <td>
+                        经度
+                    </td>
+                    <td>
+                        <input type="text" id="longitudetext" value=""/>
+                    </td>
+                    <td>
+                        纬度
+                    </td>
+                    <td>
+                        <input type="text" id="latitudetext" value=""/>
+                    </td>
+                    <td>
+                        <button onclick="submit()">查询</button>
+                    </td>
+                    <td>
+                        <button onclick="loadXMLDoc()">导航</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

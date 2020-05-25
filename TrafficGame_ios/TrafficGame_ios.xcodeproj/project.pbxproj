@@ -14,6 +14,9 @@
 		BF1BBBE623F4F47500E9B0B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1BBBE423F4F47500E9B0B6 /* Main.storyboard */; };
 		BF1BBBE823F4F47600E9B0B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1BBBE723F4F47600E9B0B6 /* Assets.xcassets */; };
 		BF1BBBEB23F4F47600E9B0B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1BBBE923F4F47600E9B0B6 /* LaunchScreen.storyboard */; };
+		BF2064E4246A2050009B6E8A /* CarPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2064E3246A2050009B6E8A /* CarPath.swift */; };
+		BF2064E6246A2240009B6E8A /* AirplanPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2064E5246A2240009B6E8A /* AirplanPath.swift */; };
+		BF2064E8246A22B5009B6E8A /* MatlabResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2064E7246A22B5009B6E8A /* MatlabResult.swift */; };
 		BF5A209623F5188800EFAECA /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209523F5188800EFAECA /* MyVC.swift */; };
 		BF5A209823F51B8700EFAECA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209723F51B8700EFAECA /* LoginVC.swift */; };
 		BF5A209A23F51C8A00EFAECA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A209923F51C8A00EFAECA /* User.swift */; };
@@ -31,6 +34,9 @@
 		BF1BBBE723F4F47600E9B0B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF1BBBEA23F4F47600E9B0B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF1BBBEC23F4F47600E9B0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF2064E3246A2050009B6E8A /* CarPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPath.swift; sourceTree = "<group>"; };
+		BF2064E5246A2240009B6E8A /* AirplanPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirplanPath.swift; sourceTree = "<group>"; };
+		BF2064E7246A22B5009B6E8A /* MatlabResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatlabResult.swift; sourceTree = "<group>"; };
 		BF5A209523F5188800EFAECA /* MyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVC.swift; sourceTree = "<group>"; };
 		BF5A209723F51B8700EFAECA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		BF5A209923F51C8A00EFAECA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				BF5A209923F51C8A00EFAECA /* User.swift */,
+				BF2064E3246A2050009B6E8A /* CarPath.swift */,
+				BF2064E5246A2240009B6E8A /* AirplanPath.swift */,
+				BF2064E7246A22B5009B6E8A /* MatlabResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,10 +254,13 @@
 				BF5A209623F5188800EFAECA /* MyVC.swift in Sources */,
 				BF1BBBE323F4F47500E9B0B6 /* ViewController.swift in Sources */,
 				BF5A209A23F51C8A00EFAECA /* User.swift in Sources */,
+				BF2064E4246A2050009B6E8A /* CarPath.swift in Sources */,
 				BF1BBBDF23F4F47500E9B0B6 /* AppDelegate.swift in Sources */,
+				BF2064E8246A22B5009B6E8A /* MatlabResult.swift in Sources */,
 				BF1BBBE123F4F47500E9B0B6 /* SceneDelegate.swift in Sources */,
 				BF5A209823F51B8700EFAECA /* LoginVC.swift in Sources */,
 				BFBA2CA623FBC9A4009A146F /* MapViewController.swift in Sources */,
+				BF2064E6246A2240009B6E8A /* AirplanPath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

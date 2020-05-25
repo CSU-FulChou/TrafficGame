@@ -47,15 +47,26 @@
             font-family: 等线;
             font-size: 14px;
         }
+        #loginbutton{
+            display: inline-block;
+            width: 80px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            cursor: pointer;
+            background: #6382ff;
+            color: #fff;
+            font-size: 14px;
+        }
     </style>
     <body>
         <div class="container">
             <div>
-                <img src="logo1.png" style="height: 80px;margin: 15px 0 0 30px;"/>
+                <img src="../img/logo1.png" style="height: 80px;margin: 15px 0 0 30px;"/>
             </div>
             <div>
                 <div>
-                    <img src="51miz-P1263662-GVAE6PWY.jpg" style="width: 100%;margin: 40px 0 0 0;"/>
+                    <img src="../img/51miz-P1263662-GVAE6PWY.jpg" style="width: 100%;margin: 40px 0 0 0;"/>
                 </div>
                 <div class="logging">
                     <table class="table">
@@ -81,13 +92,15 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="checkbox"/>
                                 <label class="text blue">自动登录</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="Example13.html" class="text">找回密码</a>
+                                <a href="main.html" class="text">找回密码</a>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button class="text" style="padding: 5px;">&nbsp;&nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;</button>
+                                <a href="main.html" style="padding: 5px;">
+                                    <span id='loginbutton'>&nbsp;&nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;</span>
+                                </a>
                             </td>
                         </tr>
                     </table>
@@ -95,7 +108,7 @@
             </div>
         </div>
         <div class="copyright">
-            Copyright © 2013-2015 有点小烦公司版权所有，苦逼的王子潇技术支持
+            Copyright © 2013-2015 有点小烦公司版权所有，苦逼的交科小队技术支持
         </div>
     </body>
 </html>

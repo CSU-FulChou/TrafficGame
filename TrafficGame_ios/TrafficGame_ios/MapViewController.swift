@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Alamofire
 
 class MapViewController: UIViewController {
     
@@ -17,7 +18,15 @@ class MapViewController: UIViewController {
         // 1.在ViewController实现MKMapViewDelegate协议的委托
         mapView.delegate = self
         // 获取用户当前的位置：
-        
+        AF.request("http://127.0.0.1:5000/getResult",method: .get).response { response in
+            debugPrint(response)
+            print(response)
+            print("111111111111111111")
+        }
+//    AF.request("https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=8f35cb963f3d5396adad5398430612b3").response { response in
+//            debugPrint(response)
+//            print(response.data)
+//        }
         
         //2.设置位置的纬度和经度
         let sourceLocation = CLLocationCoordinate2D(latitude: 40.759011, longitude: -73.984472)
@@ -133,6 +142,7 @@ extension MapViewController:MKMapViewDelegate{
         
             return routeLineView
     }
+    
     // 自定义标记的样式：
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
