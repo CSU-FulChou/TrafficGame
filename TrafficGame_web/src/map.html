@@ -91,6 +91,12 @@
                             for (i=0;i<pathd.length;i++)
                             {
                                 pd[i]=new BMap.Point(pathd[i][1],pathd[i][2]);
+                                var content=i;
+                                var label=new BMap.Label(content, {       // 创建文本标注
+                                position: pd[i],                          // 设置标注的地理位置
+                                offset: new BMap.Size(-4,-4)           // 设置标注的偏移量
+                                })
+                                map.addOverlay(label);
                             }
                             pd[pathd.length]=pd[0]
                             var polyline = new BMap.Polyline(pd, {strokeColor:"red", strokeWeight:4, strokeOpacity:0.5});   //创建折线
