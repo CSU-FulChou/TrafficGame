@@ -14,15 +14,28 @@ class MyVC: UIViewController {
     @IBOutlet weak var titleLable: UILabel!
     
     override func viewDidLoad() {
+        
+        let navigationView = UIView(frame: CGRect(x: 0, y: 0, width: 340, height: 30))
+        
+        
         super.viewDidLoad()
+       
         contentTableView.delegate = self
         contentTableView.dataSource = self
         
-        titleLable.text = "test"
+        titleLable.text = "你好，小蜜蜂"
+        //
+        titleLable.sizeToFit()
+        
+        self.navigationController?.navigationItem.titleView = navigationView
         
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
 

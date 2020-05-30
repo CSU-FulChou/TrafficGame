@@ -16,12 +16,18 @@ class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     var matlabResult:MatlabResult?
     
+    @IBOutlet weak var myOwnerBtn: UIButton!
+    
+    @IBOutlet weak var mapSearchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1.在ViewController实现MKMapViewDelegate协议的委托
         mapView.delegate = self
+//        self.navigationController?.isNavigationBarHidden = true
         
-        // 获取用户当前的位置：
+        
+        // 获取用户当前的位置：刷新地图
         AF.request("http://127.0.0.1:5000/getResult",method: .get).response { response in
             //debugPrint(response)
             //print(response)
@@ -57,7 +63,7 @@ class MapViewController: UIViewController {
             }
             
             self.matlabResult = MatlabResult(longCost: long!, carPath: pathtList, airplanPath: pathdList, save_ratefor0: save_ratefor0!, save_ratefor1: save_ratefor1!)
-                     
+            
             // 创建一个 points of pain 结果的点集合：
             var locationCoordinate2Ds = [CLLocationCoordinate2D]()
             
@@ -66,137 +72,150 @@ class MapViewController: UIViewController {
             
             
             if let matlabResult = self.matlabResult{
-                    for index in matlabResult.carPath{
-                        locationCoordinate2Ds.append(CLLocationCoordinate2D(latitude: index.latitude, longitude: index.longitude))
-                        
-                        let pointAnnotation = MKPointAnnotation()
+                for index in matlabResult.carPath{
+                    locationCoordinate2Ds.append(CLLocationCoordinate2D(latitude: index.latitude, longitude: index.longitude))
                     
-                        pointAnnotation.title = "\(index.No)"
-                        //print(pointAnnotation.title!)
-                        
-                        pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: index.latitude, longitude: index.longitude)
-                        pointAnnotations.append(pointAnnotation)
-                    }
-
+                    // 初始化注释：
+                    let pointAnnotation = MKPointAnnotation()
+                    // 加注释的 title
+                    pointAnnotation.title = "\(index.No)"
+                    //print(pointAnnotation.title!)
+                    
+                    pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: index.latitude, longitude: index.longitude)
+                    pointAnnotations.append(pointAnnotation)
+                }
+                
             }
-
-
-//            var coordinateInput:[CLLocationCoordinate2D]=locationCoordinate2D
-
-//                    let point1 = CLLocationCoordinate2DMake(-73.761105, 41.017791);
-//                    let point2 = CLLocationCoordinate2DMake(-73.760701, 41.019348);
-//                    let point3 = CLLocationCoordinate2DMake(-73.757201, 41.019267);
-//                    let point4 = CLLocationCoordinate2DMake(-73.757482, 41.016375);
-//                    let point5 = CLLocationCoordinate2DMake(-73.761105, 41.017791);
-//
-//                    let points: [CLLocationCoordinate2D]
-//                    points = [point1, point2, point3, point4, point5]
-                     // let geodesic = MKPolyline(coordinates: points, count: 5)
+            
+            
+            //            var coordinateInput:[CLLocationCoordinate2D]=locationCoordinate2D
+            
+            //                    let point1 = CLLocationCoordinate2DMake(-73.761105, 41.017791);
+            //                    let point2 = CLLocationCoordinate2DMake(-73.760701, 41.019348);
+            //                    let point3 = CLLocationCoordinate2DMake(-73.757201, 41.019267);
+            //                    let point4 = CLLocationCoordinate2DMake(-73.757482, 41.016375);
+            //                    let point5 = CLLocationCoordinate2DMake(-73.761105, 41.017791);
+            //
+            //                    let points: [CLLocationCoordinate2D]
+            //                    points = [point1, point2, point3, point4, point5]
+            // let geodesic = MKPolyline(coordinates: points, count: 5)
             
             let geodesic = MKGeodesicPolyline(coordinates: locationCoordinate2Ds, count: locationCoordinate2Ds.count)
             self.mapView.addOverlay(geodesic)
             
             // 动画setRegion
-                    UIView.animate(withDuration: 1.5, animations: { () -> Void in
-                        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-                        
-                        let region1 = MKCoordinateRegion(center: locationCoordinate2Ds[0], span: span)
-                        self.mapView.setRegion(region1, animated: true)
-                    })
+            UIView.animate(withDuration: 1.5, animations: { () -> Void in
+                let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                
+                let region1 = MKCoordinateRegion(center: locationCoordinate2Ds[0], span: span)
+                self.mapView.setRegion(region1, animated: true)
+            })
             
-                   // 6.注释显示在地图上
-                   self.mapView.showAnnotations(pointAnnotations, animated: true )
-
+            
+            // 6.注释显示在地图上
+            self.mapView.showAnnotations(pointAnnotations, animated: true )
+            
         }
         
+        myOwnerBtn.addTarget(self, action: #selector(toMyOwnerVC), for: .touchUpInside)
         
         
-
-       
-        
-    
-        
-//        //2.设置位置的纬度和经度
-//        let sourceLocation = CLLocationCoordinate2D(latitude: 40.759011, longitude: -73.984472)
-//        let destinationLocation = CLLocationCoordinate2D(latitude: 40.748441, longitude: -73.985564)
-//
-//        // 3.创建包含位置坐标的地标对象
-//        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
-//        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-//
-//        // 4.MKMapitems用于路线的绘制。 此类封装有关地图上特定点的信息
-//        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-//        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-//
-//        // 5. 注释对象： 添加注释，显示地标的名称
-//        let sourceAnnotation = MKPointAnnotation()
-//        sourceAnnotation.title = "Times Square"
-//
-//        // 如果地标对象的坐标存在，就给MK点解释对象 制定坐标
-//        if let location = sourcePlacemark.location {
-//            sourceAnnotation.coordinate = location.coordinate
-//        }
-//
-//
-//        let destinationAnnotation = MKPointAnnotation()
-//        destinationAnnotation.title = "Empire State Building"
-//
-//        if let location = destinationPlacemark.location {
-//            destinationAnnotation.coordinate = location.coordinate
-//        }
-//
-//        // 6.注释显示在地图上
-//        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
-
         
         
-//        // 7. MKDirectionsRequest类用于计算路线。
-//        let directionRequest = MKDirections.Request()
-//        directionRequest.source = sourceMapItem
-//        directionRequest.destination = destinationMapItem
-//        directionRequest.transportType = .automobile
-//
-//        // Calculate the direction
-//        let directions = MKDirections(request: directionRequest)
-//
-//        // 8.将使用折线作为地图顶部的叠加视图绘制路线。区域设置为两个位置都可见
-//        directions.calculate {
-//            (response, error) -> Void in
-//
-//            guard let response = response else {
-//                if let error = error {
-//                    print("Error: \(error)")
-//                }
-//
-//                return
-//            }
-//
-//            let route = response.routes[0]
-//
-//            route.polyline.title = "one"
-//            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
-//
-//            let rect = route.polyline.boundingMapRect
-//
-//
-//            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
-//
-//
-//        }
-       
-    
+        
+        
+        
+        
+        //        //2.设置位置的纬度和经度
+        //        let sourceLocation = CLLocationCoordinate2D(latitude: 40.759011, longitude: -73.984472)
+        //        let destinationLocation = CLLocationCoordinate2D(latitude: 40.748441, longitude: -73.985564)
+        //
+        //        // 3.创建包含位置坐标的地标对象
+        //        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        //        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        //
+        //        // 4.MKMapitems用于路线的绘制。 此类封装有关地图上特定点的信息
+        //        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        //        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        //
+        //        // 5. 注释对象： 添加注释，显示地标的名称
+        //        let sourceAnnotation = MKPointAnnotation()
+        //        sourceAnnotation.title = "Times Square"
+        //
+        //        // 如果地标对象的坐标存在，就给MK点解释对象 制定坐标
+        //        if let location = sourcePlacemark.location {
+        //            sourceAnnotation.coordinate = location.coordinate
+        //        }
+        //
+        //
+        //        let destinationAnnotation = MKPointAnnotation()
+        //        destinationAnnotation.title = "Empire State Building"
+        //
+        //        if let location = destinationPlacemark.location {
+        //            destinationAnnotation.coordinate = location.coordinate
+        //        }
+        //
+        //        // 6.注释显示在地图上
+        //        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+        
+        
+        
+        //        // 7. MKDirectionsRequest类用于计算路线。
+        //        let directionRequest = MKDirections.Request()
+        //        directionRequest.source = sourceMapItem
+        //        directionRequest.destination = destinationMapItem
+        //        directionRequest.transportType = .automobile
+        //
+        //        // Calculate the direction
+        //        let directions = MKDirections(request: directionRequest)
+        //
+        //        // 8.将使用折线作为地图顶部的叠加视图绘制路线。区域设置为两个位置都可见
+        //        directions.calculate {
+        //            (response, error) -> Void in
+        //
+        //            guard let response = response else {
+        //                if let error = error {
+        //                    print("Error: \(error)")
+        //                }
+        //
+        //                return
+        //            }
+        //
+        //            let route = response.routes[0]
+        //
+        //            route.polyline.title = "one"
+        //            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+        //
+        //            let rect = route.polyline.boundingMapRect
+        //
+        //
+        //            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+        //
+        //
+        //        }
+        
+        
         // 第二根线：
         
-//        let routeLine = MKPolyline(coordinates: [sourceLocation,destinationLocation], count: 2)
-//        routeLine.title = "two"
-//        self.mapView.addOverlay(routeLine)
-//        指定 地图的中心部位：
-//        let rect1 = routeLine.boundingMapRect
-
-//        self.mapView.setRegion(MKCoordinateRegion(rect1), animated: true)
+        //        let routeLine = MKPolyline(coordinates: [sourceLocation,destinationLocation], count: 2)
+        //        routeLine.title = "two"
+        //        self.mapView.addOverlay(routeLine)
+        //        指定 地图的中心部位：
+        //        let rect1 = routeLine.boundingMapRect
+        
+        //        self.mapView.setRegion(MKCoordinateRegion(rect1), animated: true)
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func toMyOwnerVC(){
+        
+        let MyVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyVC")
+        self.navigationController?.pushViewController(MyVC, animated: true)
+        
+//self.navigationController?.popViewController(animated: true)
+        
     }
     
 
@@ -209,8 +228,13 @@ class MapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
 
 }
+
+
 extension MapViewController:MKMapViewDelegate{
     
     // 画线的函数：
